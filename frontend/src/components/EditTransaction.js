@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { updateTransaction } from "../services/api";
+import "./EditTransaction.css";
 
 const EditTransaction = ({ transaction, refreshTransactions, closeEdit }) => {
   const [form, setForm] = useState({

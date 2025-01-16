@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import TransactionList from "../components/TransactionList";
 import AddTransaction from "../components/AddTransaction";
 import { getTransactions } from "../services/api";
+import "./TransactionsPage.css";
 const TransactionsPage = () => {
   const [transactions, setTransactions] = useState([]);
-  // Fonction pour rafraîchir les transactions
+
   const refreshTransactions = async () => {
     try {
       const { data } = await getTransactions();
-      setTransactions(data); // Mettre à jour l'état avec les transactions
+      setTransactions(data);
     } catch (error) {
       console.error(
         "Erreur lors du rafraîchissement des transactions :",
@@ -17,7 +18,6 @@ const TransactionsPage = () => {
     }
   };
 
-  // Charger les transactions au montage
   useEffect(() => {
     refreshTransactions();
   }, []);

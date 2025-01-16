@@ -39,9 +39,9 @@ const TransactionList = ({ transactions, refreshTransactions }) => {
               {transaction.type.toUpperCase()} - {transaction.category} - $
               {transaction.amount}
             </span>
-            <button onClick={() => handleEdit(transaction)}>Modifier</button>
+            <button onClick={() => handleEdit(transaction)}>Update</button>
             <button onClick={() => handleDelete(transaction._id)}>
-              Supprimer
+              Delete
             </button>
           </li>
         ))}
