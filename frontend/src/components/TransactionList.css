@@ -7,7 +7,9 @@
   }
   
   .transaction-list h2 {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Plus d'espace pour une meilleure lisibilité */
+    color: #6a11cb;
+    text-align: center;
   }
   
   .transaction-list ul {
@@ -18,12 +20,43 @@
   .transaction-list li {
     display: flex;
     justify-content: space-between;
+    align-items: center; /* Centrez verticalement */
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 15px;
     border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease;
   }
   
-  .transaction-list li:last-child {
-    border-bottom: none;
+  .transaction-list li:hover {
+    background-color: #f9f9f9;
   }
   
+  .transaction-list button {
+    margin-left: 10px;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .transaction-list button:first-child {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .transaction-list button:first-child:hover {
+    background-color: #0056b3;
+  }
+  
+  .transaction-list button:last-child {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .transaction-list button:last-child:hover {
+    background-color: #a71d2a;
+  }
+  button {
+    transition: all 0.3s ease;
+  }
+    
