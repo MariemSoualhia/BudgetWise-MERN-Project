@@ -2,10 +2,17 @@ const Transaction = require("../models/Transaction");
 
 exports.addTransaction = async (req, res) => {
   try {
-    const transaction = new Transaction(req.body);
+    const transaction = new Transaction({
+      ...req.body,
+      user: req.user._id,
+    });
+
     await transaction.save();
-    res.status(201).json({ message: "Transaction added successfully!" });
+    res
+      .status(201)
+      .json({ message: "Transaction added successfully!", transaction });
   } catch (error) {
+    console.error(error);
     res.status(500).json({ error: "Failed to add transaction." });
   }
 };
