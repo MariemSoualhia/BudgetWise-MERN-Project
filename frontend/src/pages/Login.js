@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { loginUser } from "../services/api";
-import "./Login.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useUser } from "../context/UserContext";
+import "./Login.css";
+
 const Login = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const { login } = useUser();
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -17,38 +19,48 @@ const Login = () => {
     e.preventDefault();
     try {
       const { data } = await loginUser(form);
-      login(data, data.token); // Save user and token in context
-      localStorage.setItem("token", data.token);
+      login(data.user, data.token);
       toast.success("Logged in successfully!");
       navigate("/home");
     } catch (error) {
-      toast.error("Login failed!");
+      toast.error(error.response?.data?.message || "Login failed!");
     }
   };
 
   return (
     <div className="login-page">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          onChange={handleChange}
-          required
-        />
-        <button type="submit">Login</button>
+      <div className="login-card">
+        <h1>Welcome Back</h1>
+        <p className="login-subtitle">Login to your account</p>
+        <form onSubmit={handleSubmit}>
+          <div className="input-group">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit" className="btn-login">
+            Login
+          </button>
+        </form>
         <p className="register-link">
           Don't have an account? <Link to="/register">Register here</Link>
         </p>
-      </form>
+      </div>
       <ToastContainer />
     </div>
   );

@@ -1,15 +1,120 @@
 .home-page {
-    padding: 20px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff7eb3, #8e54e9);
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.home-text {
+  flex: 1 1 500px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 50px 40px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  color: #1a1a2e;
+}
+
+.home-text h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.home-text p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+.home-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.home-buttons button {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.home-buttons button:first-child {
+  background-color: #6a11cb;
+  color: white;
+}
+
+.home-buttons button:first-child:hover {
+  background-color: #8e54e9;
+  transform: scale(1.05);
+}
+
+.home-buttons button.secondary {
+  background-color: #fff;
+  color: #6a11cb;
+}
+
+.home-buttons button.secondary:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.05);
+}
+
+.home-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-image img {
+  max-width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.home-image img:hover {
+  transform: scale(1.02);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .home-content {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .home-text {
+    padding: 30px;
     text-align: center;
   }
-  
-  .home-page h1 {
+
+  .home-text h1 {
     font-size: 32px;
-    color: #6a11cb;
   }
-  
-  .home-page p {
-    font-size: 18px;
-    color: #555;
+
+  .home-text p {
+    font-size: 16px;
   }
-  
+}

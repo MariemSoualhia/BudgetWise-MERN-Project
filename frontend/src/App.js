@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
+import Home from "./pages/Home";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useUser } from "./context/UserContext";
 import TransactionsPage from "./pages/TransactionsPage";
@@ -24,6 +25,14 @@ const App = () => {
           element={
             <ProtectedRoute>
               <Dashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <ProtectedRoute>
+              <Home />
             </ProtectedRoute>
           }
         />

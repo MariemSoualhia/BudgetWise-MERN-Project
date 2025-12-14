@@ -1,7 +1,7 @@
 .edit-transaction {
     margin: 20px auto;
     padding: 20px;
-    max-width: 500px;
+    
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -64,4 +64,23 @@
   .edit-transaction button:active {
     transform: scale(0.98);
   }
-  
+  .add-transaction input,
+.add-transaction select,
+.add-transaction textarea,
+.edit-transaction input,
+.edit-transaction select,
+.edit-transaction textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background: rgba(255,255,255,0.25);
+    color: #000; /* <- Texte en noir */
+}
+
+.add-transaction input::placeholder,
+.add-transaction textarea::placeholder,
+.edit-transaction input::placeholder,
+.edit-transaction textarea::placeholder {
+    color: #555; /* Placeholder gris foncé */
+}

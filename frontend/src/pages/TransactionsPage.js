@@ -3,6 +3,7 @@ import TransactionList from "../components/TransactionList";
 import AddTransaction from "../components/AddTransaction";
 import { getTransactions } from "../services/api";
 import "./TransactionsPage.css";
+
 const TransactionsPage = () => {
   const [transactions, setTransactions] = useState([]);
 
@@ -24,12 +25,18 @@ const TransactionsPage = () => {
 
   return (
     <div className="transactions-page">
-      <h1>My Transactions</h1>
-      <AddTransaction refreshTransactions={refreshTransactions} />
-      <TransactionList
-        transactions={transactions}
-        refreshTransactions={refreshTransactions}
-      />
+      <h1 className="page-title">My Transactions</h1>
+      <div className="transactions-container">
+        <div className="add-transaction-wrapper">
+          <AddTransaction refreshTransactions={refreshTransactions} />
+        </div>
+        <div className="transaction-list-wrapper">
+          <TransactionList
+            transactions={transactions}
+            refreshTransactions={refreshTransactions}
+          />
+        </div>
+      </div>
     </div>
   );
 };

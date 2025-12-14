@@ -43,4 +43,23 @@
   .add-transaction button:hover {
     background-color: #8e54e9;
   }
-  
+  .add-transaction input,
+.add-transaction select,
+.add-transaction textarea,
+.edit-transaction input,
+.edit-transaction select,
+.edit-transaction textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    background: rgba(255,255,255,0.25);
+    color: #000; /* <- Texte en noir */
+}
+
+.add-transaction input::placeholder,
+.add-transaction textarea::placeholder,
+.edit-transaction input::placeholder,
+.edit-transaction textarea::placeholder {
+    color: #555; /* Placeholder gris foncé */
+}

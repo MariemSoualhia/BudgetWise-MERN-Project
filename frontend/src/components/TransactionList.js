@@ -9,43 +9,49 @@ const TransactionList = ({ transactions, refreshTransactions }) => {
   const handleDelete = async (id) => {
     try {
       await deleteTransaction(id);
-      alert("Transaction supprimée avec succès !");
       refreshTransactions();
     } catch (error) {
       console.error("Erreur lors de la suppression :", error);
-      alert("Échec de la suppression.");
     }
   };
 
-  const handleEdit = (transaction) => {
-    setEditingTransaction(transaction);
-  };
-
-  const closeEdit = () => {
-    setEditingTransaction(null);
-  };
+  const handleEdit = (transaction) => setEditingTransaction(transaction);
+  const closeEdit = () => setEditingTransaction(null);
 
   if (!transactions || transactions.length === 0) {
-    return <p>Aucune transaction à afficher.</p>;
+    return (
+      <div className="transaction-empty">
+        <p>Aucune transaction à afficher.</p>
+      </div>
+    );
   }
 
   return (
-    <div className="transaction-list">
-      <h2>Transaction List</h2>
-      <ul>
-        {transactions.map((transaction) => (
-          <li key={transaction._id}>
-            <span>
-              {transaction.type.toUpperCase()} - {transaction.category} - $
-              {transaction.amount}
-            </span>
-            <button onClick={() => handleEdit(transaction)}>Update</button>
-            <button onClick={() => handleDelete(transaction._id)}>
-              Delete
-            </button>
-          </li>
+    <div className="transaction-page">
+      <h2>Transactions</h2>
+      <div className="transaction-list">
+        {transactions.map((t) => (
+          <div key={t._id} className="transaction-card">
+            <div className="transaction-info">
+              <span className={`type ${t.type}`}>{t.type.toUpperCase()}</span>
+              <span className="category">{t.category}</span>
+              <span className="amount">${t.amount}</span>
+            </div>
+            <div className="transaction-actions">
+              <button className="btn-edit" onClick={() => handleEdit(t)}>
+                Edit
+              </button>
+              <button
+                className="btn-delete"
+                onClick={() => handleDelete(t._id)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
+
       {editingTransaction && (
         <EditTransaction
           transaction={editingTransaction}

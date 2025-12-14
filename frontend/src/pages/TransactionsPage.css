@@ -1,16 +1,59 @@
 .transactions-page {
-    padding: 20px;
-    width: 90%;
-    margin: 0 auto;
-    background-color: #ffffff; 
-    border-radius: 10px;
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin: 30px auto;
+  padding: 20px;
+  font-family: 'Poppins', 'Roboto', sans-serif;
+  color: #1a1a2e;
+}
+
+.page-title {
+  text-align: center;
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #6a11cb;
+  font-weight: 700;
+}
+
+.transactions-container {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: calc(100vh - 80px); /* pleine hauteur moins le titre */
+}
+
+/* AddTransaction = 40% */
+.add-transaction-wrapper {
+  flex: 0 0 40%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* TransactionList = 60% */
+.transaction-list-wrapper {
+  flex: 0 0 60%;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .transactions-container {
+    flex-direction: column;
+    height: auto;
   }
-  
-  .transactions-page h1 {
-    text-align: center;
-    margin-bottom: 30px; 
-    color: #6a11cb;
-    font-size: 28px; 
+  .add-transaction-wrapper,
+  .transaction-list-wrapper {
+    flex: 1 1 100%;
+    height: auto;
   }
-  
+}
+
+
+
+/* Ajout d’un fond glass léger pour la page */
+.transactions-page {
+  background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0));
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}

@@ -11,13 +11,15 @@ const Navbar = () => {
   const handleLogout = () => {
     localStorage.removeItem("token");
     logout();
-    navigate("/login");
+    navigate("/");
   };
 
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        <h1 className="navbar-logo">BudgetWise</h1>
+        <Link to="/home" className="navbar-logo">
+          BudgetWise
+        </Link>
         <ul className="navbar-links">
           <li>
             <Link to="/dashboard">Dashboard</Link>
